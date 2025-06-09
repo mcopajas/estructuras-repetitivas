@@ -15,14 +15,14 @@ int multiplicacion(int a, int b){
     }
 
     while(b > 0){
-        if (b % 2 == 1) {
+        if(b % 2 == 1){
             resultado += a;
         }
         a = a * 2;
         b = b / 2;
     }
 
-    if (negativo) {
+    if (negativo){
         resultado = -resultado;
     }
     return resultado;
