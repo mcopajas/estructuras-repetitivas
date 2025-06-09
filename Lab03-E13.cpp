@@ -1,15 +1,10 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-    int a, b, resultado = 0;
-
-    cout<<"Ingrese el primer numero: ";
-    cin>>a;
-    cout<<"Ingrese el segundo numero: ";
-    cin>>b;
-    //Manejo de signos
+int multiplicacion(int a, int b){
+    int resultado = 0;
     bool negativo = false;
+
     if(a < 0){
         a = -a;
         negativo = !negativo;
@@ -18,14 +13,29 @@ int main() {
         b = -b;
         negativo = !negativo;
     }
-    //Suma repetida
-    for(int i = 0; i < b; i++){
-        resultado += a;
+
+    while(b > 0){
+        if (b % 2 == 1) {
+            resultado += a;
+        }
+        a = a * 2;
+        b = b / 2;
     }
-    if(negativo){
+
+    if (negativo) {
         resultado = -resultado;
     }
-    cout<<"El resultado de la multiplicacion es: "<<resultado<<endl;
+    return resultado;
+}
+
+int main(){
+    int a, b;
+    cout<<"Ingrese el primer numero: ";
+    cin>>a;
+    cout<<"Ingrese el segundo numero: ";
+    cin>>b;
+
+    int resultado = multiplicacion(a, b);
+    cout<<"El resultado de la multiplicacion es: "<<resultado<<"."<<endl;
     return 0;
-    
 }
